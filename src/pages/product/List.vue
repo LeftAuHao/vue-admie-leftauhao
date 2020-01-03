@@ -14,7 +14,7 @@
              <el-table-column label="操作">
                  <template v-slot="slot">
                     <a href="" @click.prevent="toDeleteHandler(slot.row.id)">删除</a>
-                    <a href="" @click.prevent="toUpdateHandler">修改</a>
+                    <a href="" @click.prevent="toUpdateHandler(slot.row)">修改</a>
                     <a href="" @click.prevent="toUpdateHandler">详情</a>
                  </template>
              </el-table-column>
@@ -102,7 +102,8 @@ export default {
                  });
             })
         },
-        toUpdateHandler(){
+        toUpdateHandler(row){
+            this.form=row;
             this.title="修改产品信息";
             this.visible=true;
         },

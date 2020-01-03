@@ -18,7 +18,7 @@
              <el-table-column fixed="right" label="操作">
                  <template v-slot="slot">
                     <a href="" @click.prevent="toDeleteHandler(slot.row.id)">删除</a>
-                    <a href="" @click.prevent="toUpdateHandler()">修改</a>
+                    <a href="" @click.prevent="toUpdateHandler(slot.row)">修改</a>
                  </template>    
              </el-table-column>
         </el-table>
@@ -124,7 +124,8 @@ export default {
                  });
             })
         },
-        toUpdateHandler(){
+        toUpdateHandler(row){
+            this.form=row;
             title:'修改员工信息';
             this.visible=true;
         },
